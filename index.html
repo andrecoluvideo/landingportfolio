@@ -3,75 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrea Colucci - Portfolio Film Maker</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+  <title>Andrea Colucci - Film Maker Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap" rel="stylesheet">
   <style>
-    body {
+    /* Reset base */
+    * {
       margin: 0;
-      background-color: #0a0a0a;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
       font-family: 'Raleway', sans-serif;
+      background-color: #0a0a0a;
       color: #fff;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    header {
-      text-align: center;
-      padding: 50px 20px 20px 20px;
-    }
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 20px;
-      color: #aaa;
-    }
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-      padding: 40px;
-    }
-    .video-card {
-      background-color: #111;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(255,255,255,0.05);
-      transition: transform 0.3s ease;
-    }
-    .video-card:hover {
-      transform: scale(1.02);
-    }
-    .video-card iframe {
+
+    /* Background pattern geometrico */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 250px;
-      border: none;
+      height: 100%;
+      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px);
+      pointer-events: none;
+      z-index: 0;
     }
-    .video-description {
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
       padding: 20px;
-      font-size: 16px;
+      animation: fadeUp 2s ease forwards;
+    }
+    .hero-content h1 {
+      font-size: 60px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 24px;
+      font-weight: 600;
       color: #ccc;
     }
-    .packages {
-      padding: 60px 20px;
-      background: #111;
-      text-align: center;
+
+    /* Sezione generale */
+    section {
+      position: relative;
+      padding: 80px 40px;
+      z-index: 2;
     }
-    .packages h2 {
-      font-size: 36px;
-      margin-bottom: 40px;
+
+    .divider {
+      width: 100px;
+      height: 3px;
+      background: #4caf50;
+      margin: 40px auto;
+      border-radius: 3px;
+      opacity: 0.8;
+    }
+
+    .section-title {
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 700;
+      position: relative;
+    }
+
+    /* Pacchetti */
+    .packages {
+      background-color: #111;
+      padding: 80px 20px;
+      text-align: center;
     }
     .package-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
+      margin-top: 40px;
     }
     .package {
       background-color: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.1);
       padding: 30px;
       border-radius: 12px;
-      width: 300px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.05);
+      width: 280px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .package:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
     .package h3 {
       font-size: 24px;
@@ -87,83 +139,59 @@
       color: #4caf50;
       margin-bottom: 10px;
     }
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
-      color: #555;
-      background-color: #000;
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .package-list {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Andrea Colucci</h1>
-  <p>Film Maker - Content Creator</p>
-</header>
-
-<section class="video-grid">
-
-  <div class="video-card">
-   <iframe src="https://player.vimeo.com/video/1041605119?autoplay=1&loop=1&muted=1" allow="autoplay; fullscreen" allowfullscreen></iframe> 
-    <div class="video-description">A SHORT TRAVEL INTROSPECTIVE VIDEO  BY ANDREA COLUCCI</div>
+<!-- HERO con video autoplay -->
+<section class="hero">
+  <video autoplay loop muted playsinline>
+    <source src="https://player.vimeo.com/progressive_redirect/playback/1041605119/rendition/720p/file.mp4?loc=external&signature=xyz" type="video/mp4">
+    Il tuo browser non supporta il tag video.
+  </video>
+  <div class="hero-content">
+    <h1>Andrea Colucci</h1>
+    <p>Film Maker | Storyteller Visivo</p>
   </div>
-
-  <div class="video-card">
-    <iframe src="https://player.vimeo.com/video/988374113?autoplay=1&loop=1&muted=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    <div class="video-description">Short spot for  SelisenCosmetic</div>
-  </div>
-
-  <div class="video-card">
-   <iframe src="https://player.vimeo.com/video/1033669425?autoplay=1&loop=1&muted=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    <div class="video-description">A short commercial spot for  Palletways Italia"</div>
-  </div>
-
-<div class="video-card">
-    <iframe src="https://player.vimeo.com/video/1077604297?autoplay=1&loop=1&muted=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    <div class="video-description">🎥 Short Spot for My Place Chiavari Ho curato questo video per un centro estetico che vuole distinguersi, non solo esistere.
-
-Ogni ripresa, ogni luce, ogni dettaglio è pensato per comunicare il valore reale del servizio.
-
-Se anche tu vuoi presentare il tuo business con stile, visione e qualità:
-
- 📩 Scrivimi in DM. Il tuo brand merita un’immagine all’altezza."</div>
-  </div>
-
-  <!-- Aggiungi altri video duplicando il blocco video-card -->
-
 </section>
 
+<!-- Sezione Pacchetti Video Professionali -->
 <section class="packages">
-  <h2>Pacchetti Video Professionali</h2>
-
+  <h2 class="section-title">Pacchetti Video Professionali</h2>
+  <div class="divider"></div>
   <div class="package-list">
-
     <div class="package">
       <h3>Basic</h3>
-      <p>Video breve (< 1 min), ideale per social media. Riprese + Montaggio base.</p>
+      <p>Video breve (< 1 min), perfetto per social media. Riprese + montaggio base.</p>
       <div class="price">€299</div>
     </div>
-
     <div class="package">
       <h3>Standard</h3>
-      <p>Video promozionale (< 3 min) per aziende e eventi. Riprese + Montaggio avanzato + Color grading.</p>
+      <p>Video promozionale (< 3 min), ideale per aziende ed eventi. Montaggio avanzato + color grading.</p>
       <div class="price">€599</div>
     </div>
-
     <div class="package">
       <h3>Premium</h3>
-      <p>Video cinematografico (> 3 min), storytelling personalizzato, drone incluso, montaggio professionale completo.</p>
+      <p>Video cinematografico (> 3 min), storytelling personalizzato, riprese drone, montaggio professionale.</p>
       <div class="price">€999</div>
     </div>
-
+    <div class="package">
+      <h3>Elite Project</h3>
+      <p>Produzione avanzata, più giornate di riprese, team di supporto, montaggio cinematografico di altissimo livello.</p>
+      <div class="price">€1.999</div>
+    </div>
+    <div class="package">
+      <h3>Full Storytelling</h3>
+      <p>Strategia narrativa completa, video lunghi + short clips, sessioni multiple, ideazione e creazione di una collana contenuti.</p>
+      <div class="price">€3.500</div>
+    </div>
   </div>
 </section>
-
-<footer>
-  © 2025 Andrea Colucci | Film Maker Portfolio
-</footer>
-
-</body>
-</html>
