@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrea Colucci - Portfolio Film Maker</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap" rel="stylesheet">
+  <title>Andrea Colucci - Film Maker Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,7 +15,7 @@
       height: 100%;
       font-family: 'Raleway', sans-serif;
       background-color: #0a0a0a;
-      color: #fff;
+      color: #ffffff;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
@@ -26,20 +26,23 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 20px);
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
-    .hero {
-      position: relative;
+    header {
       width: 100%;
       height: 100vh;
+      background: #0a0a0a;
+      position: relative;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      flex-direction: column;
+      text-align: center;
     }
-    .hero video {
+    header video {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -47,145 +50,201 @@
       min-height: 100%;
       width: auto;
       height: auto;
-      z-index: 1;
       transform: translate(-50%, -50%);
       object-fit: cover;
-      filter: brightness(0.6);
+      filter: brightness(0.4);
+      z-index: 1;
     }
-    .hero-content {
+    .header-content {
       position: relative;
       z-index: 2;
-      text-align: center;
       padding: 20px;
+      animation: fadeUp 2s ease forwards;
     }
-    .hero-content h1 {
-      font-size: 64px;
-      font-weight: 800;
-      margin-bottom: 20px;
+    .header-content h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 72px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      color: #ffffff;
     }
-    .hero-content p {
+    .header-content p {
       font-size: 24px;
-      font-weight: 500;
-      color: #ccc;
-      margin-bottom: 40px;
+      font-weight: 400;
+      color: #cccccc;
+      margin-bottom: 30px;
     }
-    .scroll-indicator {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 50px;
-      border: 2px solid #fff;
-      border-radius: 25px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 5px;
+    .header-content a {
+      display: inline-block;
+      background: #4caf50;
+      color: #ffffff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      transition: background 0.3s ease;
     }
-    .scroll-indicator span {
-      width: 6px;
-      height: 6px;
-      background: #fff;
-      border-radius: 50%;
-      animation: moveDown 1.5s infinite;
+    .header-content a:hover {
+      background: #3e8e41;
     }
-    @keyframes moveDown {
-      0% { transform: translateY(0); opacity: 1; }
-      50% { transform: translateY(15px); opacity: 0.5; }
-      100% { transform: translateY(0); opacity: 1; }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
-<section class="hero">
+
+<header>
   <video autoplay loop muted playsinline>
     <source src="https://player.vimeo.com/progressive_redirect/playback/1041605119/rendition/720p/file.mp4?loc=external&signature=xyz" type="video/mp4">
     Il tuo browser non supporta il video HTML5.
   </video>
-  <div class="hero-content">
+  <div class="header-content">
     <h1>Andrea Colucci</h1>
     <p>Film Maker | Storyteller Visivo</p>
+    <a href="#portfolio">Scopri il mio lavoro</a>
   </div>
-  <div class="scroll-indicator">
-    <span></span>
-  </div>
-</section>
-<section class="motivational-texts">
-  <p>"Ogni grande storia merita di essere raccontata nel modo giusto."</p>
-  <p>"Le emozioni autentiche si trasformano in immagini senza tempo."</p>
-  <p>"Non giriamo solo video, creiamo esperienze."</p>
-</section>
-
-<section class="video-category">
-  <h2>Commerciali</h2>
-  <div class="video-grid">
-    <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/988374113" allow="autoplay; fullscreen" allowfullscreen></iframe>
-      <div class="video-description">Un breve spot dal tono elegante e minimal per Célisène Cosmetic, esaltando la purezza e l'efficacia dei prodotti.</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1033669425" allow="autoplay; fullscreen" allowfullscreen></iframe>
-      <div class="video-description">Spot commerciale dinamico per Palletways Italia: logistica raccontata con forza ed emozione.</div>
-    </div>
+</header>
+<!-- Sezione Motivazionale -->
+<section id="portfolio" style="padding: 100px 20px; background-color: #0a0a0a; text-align: center;">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 48px; margin-bottom: 40px; color: #ffffff; animation: fadeUp 1.5s ease forwards;">Diamo vita alla tua storia</h2>
+    <p style="font-size: 22px; color: #cccccc; margin-bottom: 20px; animation: fadeUp 2s ease forwards;">
+      Ogni progetto che realizzo è un viaggio nell'emozione, nell'identità e nel valore umano.
+    </p>
+    <p style="font-size: 22px; color: #cccccc; margin-bottom: 20px; animation: fadeUp 2.5s ease forwards;">
+      Racconto il tuo mondo attraverso immagini che parlano direttamente al cuore.
+    </p>
+    <p style="font-size: 22px; color: #cccccc; margin-bottom: 50px; animation: fadeUp 3s ease forwards;">
+      Lascia che il tuo messaggio diventi indimenticabile.
+    </p>
   </div>
 </section>
 
-<section class="video-category">
-  <h2>Progetti Personali</h2>
-  <div class="video-grid">
-    <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1041605119" allow="autoplay; fullscreen" allowfullscreen></iframe>
-      <div class="video-description">Viaggio introspettivo in Trentino: immagini di natura e libertà che trasformano ogni scena in emozione.</div>
+<!-- Sezione Video Commerciali -->
+<section style="padding: 80px 20px; background-color: #0a0a0a;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 42px; text-align: center; margin-bottom: 40px; color: #ffffff;">Progetti Commerciali</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+      
+      <div style="background-color: #111; border-radius: 12px; overflow: hidden; box-shadow: 0 0 10px rgba(255,255,255,0.1); transition: transform 0.3s ease;">
+        <iframe src="https://player.vimeo.com/video/988374113" style="width: 100%; height: 220px; border: none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div style="padding: 20px; text-align: center;">
+          <h3 style="font-size: 20px; margin-bottom: 10px; color: #4caf50;">Célisène Cosmetic</h3>
+          <p style="font-size: 16px; color: #bbb;">Eleganza e minimalismo per valorizzare la purezza dei prodotti Célisène.</p>
+        </div>
+      </div>
+
+      <div style="background-color: #111; border-radius: 12px; overflow: hidden; box-shadow: 0 0 10px rgba(255,255,255,0.1); transition: transform 0.3s ease;">
+        <iframe src="https://player.vimeo.com/video/1033669425" style="width: 100%; height: 220px; border: none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div style="padding: 20px; text-align: center;">
+          <h3 style="font-size: 20px; margin-bottom: 10px; color: #4caf50;">Palletways Italia</h3>
+          <p style="font-size: 16px; color: #bbb;">Spot dinamico e potente che racconta la logistica con emozione e forza visiva.</p>
+        </div>
+      </div>
+
     </div>
-    <div class="video-card">
-      <iframe src="https://player.vimeo.com/video/1077604297" allow="autoplay; fullscreen" allowfullscreen></iframe>
-      <div class="video-description">Video emozionale per il centro estetico My Place: ogni dettaglio racconta cura, visione e raffinatezza.</div>
+  </div>
+</section>
+<!-- Sezione Video Progetti Personali -->
+<section style="padding: 80px 20px; background-color: #0a0a0a;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 42px; text-align: center; margin-bottom: 40px; color: #ffffff;">Progetti Personali</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+      
+      <div style="background-color: #111; border-radius: 12px; overflow: hidden; box-shadow: 0 0 10px rgba(255,255,255,0.1); transition: transform 0.3s ease;">
+        <iframe src="https://player.vimeo.com/video/1041605119" style="width: 100%; height: 220px; border: none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div style="padding: 20px; text-align: center;">
+          <h3 style="font-size: 20px; margin-bottom: 10px; color: #4caf50;">Short Travel Project</h3>
+          <p style="font-size: 16px; color: #bbb;">Un viaggio introspettivo tra natura incontaminata e libertà autentica, girato in Trentino.</p>
+        </div>
+      </div>
+
+      <div style="background-color: #111; border-radius: 12px; overflow: hidden; box-shadow: 0 0 10px rgba(255,255,255,0.1); transition: transform 0.3s ease;">
+        <iframe src="https://player.vimeo.com/video/1077604297" style="width: 100%; height: 220px; border: none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div style="padding: 20px; text-align: center;">
+          <h3 style="font-size: 20px; margin-bottom: 10px; color: #4caf50;">My Place Chiavari</h3>
+          <p style="font-size: 16px; color: #bbb;">Brand video per il centro estetico My Place: eleganza, cura e visione raccontate in ogni dettaglio.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="packages">
-  <h2>Pacchetti Video Professionali</h2>
-  <div class="package-list">
-    <div class="package">
-      <h3>Basic</h3>
-      <p>Video breve (< 1 min), perfetto per social media. Riprese + montaggio base essenziale e dinamico.</p>
-      <div class="price">€299</div>
+<!-- Sezione Pacchetti Video -->
+<section style="padding: 100px 20px; background-color: #111;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 48px; text-align: center; margin-bottom: 40px; color: #ffffff;">Pacchetti Video Professionali</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+      
+      <div style="background-color: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; width: 280px; padding: 30px; text-align: center; transition: transform 0.3s;">
+        <h3 style="font-size: 22px; margin-bottom: 10px; color: #4caf50;">Basic</h3>
+        <p style="font-size: 16px; color: #bbb; margin-bottom: 20px;">Video breve (<1 min), perfetto per social media. Riprese + montaggio base.</p>
+        <div style="font-size: 24px; color: #4caf50; margin-bottom: 20px;">€299</div>
+        <a href=\"#contatti\" style=\"background: #4caf50; padding: 10px 20px; border-radius: 50px; color: #fff; text-decoration: none; font-weight: bold;\">Ordina Ora</a>
+      </div>
+
+      <div style="background-color: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; width: 280px; padding: 30px; text-align: center; transition: transform 0.3s;">
+        <h3 style="font-size: 22px; margin-bottom: 10px; color: #4caf50;">Standard</h3>
+        <p style="font-size: 16px; color: #bbb; margin-bottom: 20px;">Video promozionale (<3 min), ideale per aziende ed eventi. Montaggio avanzato + color grading.</p>
+        <div style="font-size: 24px; color: #4caf50; margin-bottom: 20px;">€599</div>
+        <a href=\"#contatti\" style=\"background: #4caf50; padding: 10px 20px; border-radius: 50px; color: #fff; text-decoration: none; font-weight: bold;\">Ordina Ora</a>
+      </div>
+      
     </div>
-    <div class="package">
-      <h3>Standard</h3>
-      <p>Video promozionale (< 3 min), ideale per aziende e eventi. Riprese curate, montaggio avanzato, color grading professionale.</p>
-      <div class="price">€599</div>
-    </div>
-<div class="package">
-      <h3>Premium</h3>
-      <p>Video cinematografico (> 3 min), storytelling personalizzato, drone incluso, montaggio completo e perfezionato.</p>
-      <div class="price">€999</div>
-    </div>
-    <div class="package">
-      <h3>Elite Project</h3>
-      <p>Produzione avanzata: più giorni di riprese, team tecnico, sessioni multi-location, montaggio cinematografico d'impatto.</p>
-      <div class="price">€1.999</div>
-    </div>
-    <div class="package">
-      <h3>Full Storytelling</h3>
-      <p>Piano narrativo completo: video principali + short clips, regia su misura, ideazione contenuti e realizzazione continuativa.</p>
-      <div class="price">€3.500</div>
+  </div>
+</section>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
+      
+      <div style="background-color: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; width: 280px; padding: 30px; text-align: center; transition: transform 0.3s;">
+        <h3 style="font-size: 22px; margin-bottom: 10px; color: #4caf50;">Premium</h3>
+        <p style="font-size: 16px; color: #bbb; margin-bottom: 20px;">Video cinematografico (>3 min), storytelling personalizzato, drone incluso, montaggio di altissimo livello.</p>
+        <div style="font-size: 24px; color: #4caf50; margin-bottom: 20px;">€999</div>
+        <a href=\"#contatti\" style=\"background: #4caf50; padding: 10px 20px; border-radius: 50px; color: #fff; text-decoration: none; font-weight: bold;\">Ordina Ora</a>
+      </div>
+
+      <div style="background-color: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; width: 280px; padding: 30px; text-align: center; transition: transform 0.3s;">
+        <h3 style="font-size: 22px; margin-bottom: 10px; color: #4caf50;">Elite Project</h3>
+        <p style="font-size: 16px; color: #bbb; margin-bottom: 20px;">Produzione avanzata: più giornate di riprese, team tecnico, sessioni multi-location, regia professionale.</p>
+        <div style="font-size: 24px; color: #4caf50; margin-bottom: 20px;">€1.999</div>
+        <a href=\"#contatti\" style=\"background: #4caf50; padding: 10px 20px; border-radius: 50px; color: #fff; text-decoration: none; font-weight: bold;\">Ordina Ora</a>
+      </div>
+
+      <div style="background-color: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; width: 280px; padding: 30px; text-align: center; transition: transform 0.3s;">
+        <h3 style="font-size: 22px; margin-bottom: 10px; color: #4caf50;">Full Storytelling</h3>
+        <p style="font-size: 16px; color: #bbb; margin-bottom: 20px;">Strategia narrativa completa: video principali + clips, regia su misura, creazione continua di contenuti visivi.</p>
+        <div style="font-size: 24px; color: #4caf50; margin-bottom: 20px;">€3.500</div>
+        <a href=\"#contatti\" style=\"background: #4caf50; padding: 10px 20px; border-radius: 50px; color: #fff; text-decoration: none; font-weight: bold;\">Ordina Ora</a>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="cta-ai">
-  <a href="https://andrecoluvideo.gumroad.com/" target="_blank">🎨 Crea il tuo personaggio con l'IA →</a>
+<!-- Call to Action Crea Personaggio IA -->
+<section style="text-align: center; padding: 80px 20px; background-color: #0a0a0a;">
+  <h2 style="font-family: 'Bebas Neue', cursive; font-size: 42px; color: #ffffff; margin-bottom: 30px;">🎨 Crea il tuo Personaggio con l'Intelligenza Artificiale</h2>
+  <a href="https://andrecoluvideo.gumroad.com/" target="_blank" style="background: #4caf50; padding: 15px 30px; border-radius: 50px; font-size: 20px; color: #fff; text-decoration: none; font-weight: bold; transition: background 0.3s;">Scopri il Pack</a>
 </section>
 
-<footer>
-  <p>© 2025 Andrea Colucci | Film Maker Portfolio</p>
-  <div class="social-links">
-    <a href="https://instagram.com/andrecolu_video" target="_blank">Instagram</a> |
-    <a href="https://youtube.com/@andrecolu_video" target="_blank">YouTube</a> |
-    <a href="https://vimeo.com/andrecolu_video" target="_blank">Vimeo</a>
+<!-- Footer -->
+<footer style="background-color: #000; padding: 50px 20px; text-align: center;">
+  <p style="color: #777; font-size: 14px;">© 2025 Andrea Colucci | Film Maker Portfolio</p>
+  <div style="margin-top: 20px;">
+    <a href="https://instagram.com/andrecolu_video" target="_blank" style="color: #4caf50; margin: 0 10px; font-size: 18px; text-decoration: none;">Instagram</a>
+    |
+    <a href="https://youtube.com/@andrecolu_video" target="_blank" style="color: #4caf50; margin: 0 10px; font-size: 18px; text-decoration: none;">YouTube</a>
+    |
+    <a href="https://vimeo.com/andrecolu_video" target="_blank" style="color: #4caf50; margin: 0 10px; font-size: 18px; text-decoration: none;">Vimeo</a>
   </div>
 </footer>
 
