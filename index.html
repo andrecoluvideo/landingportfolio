@@ -175,10 +175,32 @@
 
 
 
-<!-- Sezione Motivazionale -->
-<section id="portfolio" style="padding: 100px 20px; background-color: #0a0a0a; text-align: center;">
-  <div style="max-width: 1000px; margin: 0 auto;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 48px; margin-bottom: 40px; color: #ffffff; animation: fadeUp 1.5s ease forwards;">Diamo vita alla tua storia</h2>
+<!-- Sezione Motivazionale con sfondo elegante -->
+<section id="portfolio" style="position: relative; padding: 100px 20px; z-index: 0; background-color: transparent;">
+
+  <!-- SFONDO immagine + sfumatura -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom,
+      rgba(10,10,10,1) 0%,
+      rgba(10,10,10,0.7) 20%,
+      rgba(10,10,10,0.6) 50%,
+      rgba(10,10,10,0.7) 80%,
+      rgba(10,10,10,1) 100%),
+      url('images/covers/cover_intro_commerciale.jpg') center/cover no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
+  "></div>
+
+  <!-- CONTENUTO -->
+  <div style="position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; text-align: center;">
+    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 48px; margin-bottom: 40px; color: #ffffff; animation: fadeUp 1.5s ease forwards;">
+      Diamo vita alla tua storia
+    </h2>
     <p style="font-size: 22px; color: #cccccc; margin-bottom: 20px; animation: fadeUp 2s ease forwards;">
       Ogni progetto che realizzo è un viaggio nell'emozione, nell'identità e nel valore umano.
     </p>
@@ -189,7 +211,9 @@
       Lascia che il tuo messaggio diventi indimenticabile.
     </p>
   </div>
+
 </section>
+
 
   <!-- Cover di sfondo per la sezione pacchetti -->
 <!-- Cover sfumata dopo intro motivazionale -->
