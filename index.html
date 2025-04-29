@@ -115,17 +115,14 @@
 </head>
 <body>
 
-<header>
-  <video autoplay loop muted playsinline>
-    <source src="https://player.vimeo.com/progressive_redirect/playback/1041605119/rendition/720p/file.mp4?loc=external&signature=xyz" type="video/mp4">
-    Il tuo browser non supporta il video HTML5.
-  </video>
-  <div class="header-content">
-    <h1>Andrea Colucci</h1>
-    <p>Film Maker | Storyteller Visivo</p>
-    <a href="#portfolio">Scopri il mio lavoro</a>
+<header style="position: relative; width: 100%; height: 100vh; overflow: hidden; background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, #0a0a0a 100%), url('hero-background.webp') center/cover no-repeat; background-size: cover;">
+  <div class="header-content" style="position: relative; z-index: 2; padding: 20px; text-align: center; animation: fadeUp 2s ease forwards;">
+    <h1 style="font-family: 'Bebas Neue', cursive; font-size: 72px; color: #ffffff;">Andrea Colucci</h1>
+    <p style="font-size: 24px; color: #cccccc; margin-bottom: 30px;">Film Maker | Storyteller Visivo</p>
+    <a href="#portfolio" style="background: #4caf50; padding: 15px 30px; border-radius: 50px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: 600;">Scopri il mio lavoro</a>
   </div>
 </header>
+
 
 <!-- Sezione Motivazionale -->
 <section id="portfolio" style="padding: 100px 20px; background-color: #0a0a0a; text-align: center;">
