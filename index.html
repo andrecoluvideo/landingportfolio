@@ -475,65 +475,96 @@
   </div>
 </section>
   
-  <!-- Sezione Pacchetti Wedding + sfondo  -->
+ <!-- Sezione Pacchetti Wedding -->
+<section id="wedding-packs" class="pack-grid-wrapper">
+  <h2>Pacchetti Wedding</h2>
 
-<section class="wedding-pack-hero">
-  <div class="overlay-gradient">
-    <div class="content-container">
-      <h2>Pacchetti Wedding</h2>
-      <p>Scegli tra <strong>Basic</strong>, <strong>Classic</strong> e <strong>Premium</strong> per un racconto su misura del tuo matrimonio</p>
+  <div class="pack-grid">
+    <!-- PACK BASIC -->
+    <div class="pack-card">
+      <h3>Basic</h3>
+      <p>Il pacchetto essenziale per cogliere i momenti principali in modo semplice ed elegante.</p>
+    </div>
+
+    <!-- PACK CLASSIC -->
+    <div class="pack-card">
+      <h3>Classic</h3>
+      <p>Riprese più strutturate, dettagli, emozioni e montaggio narrativo con colonna sonora.</p>
+    </div>
+
+    <!-- PACK PREMIUM -->
+    <div class="pack-card">
+      <h3>Premium</h3>
+      <p>Stile cinematografico completo: droni, multi-camera, montaggio avanzato e look da film.</p>
     </div>
   </div>
 </section>
 
 <style>
-.wedding-pack-hero {
-  position: relative;
-  background-image: url('images/covers/background_pack_wedding.jpg'); /* ← Cambia con il percorso corretto */
+/* Sfondo della sezione */
+.pack-grid-wrapper {
+  background-image: url('images/covers/background_pack_wedding.jpg'); /* <-- Cambia percorso se necessario */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
+  padding: 6rem 2rem;
+  position: relative;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
 }
 
-.overlay-gradient {
+/* Sfumatura sopra e sotto */
+.pack-grid-wrapper::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%),
-    linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0), rgba(0,0,0,0.3));
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.2), rgba(0,0,0,0.9));
+  z-index: 0;
+}
+
+/* Titolo sezione */
+.pack-grid-wrapper h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+}
+
+/* Contenitore dei 3 pacchetti */
+.pack-grid {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
   z-index: 1;
 }
 
-.content-container {
-  position: relative;
-  z-index: 2;
-  color: white;
+/* Singolo pack */
+.pack-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   padding: 2rem;
+  backdrop-filter: blur(4px);
+  color: white;
   text-align: center;
 }
 
-.content-container h2 {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
+.pack-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
 }
 
-.content-container p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #f0f0f0;
+.pack-card p {
+  font-size: 1rem;
+  color: #dddddd;
 }
 </style>
+
 
 
   
