@@ -476,15 +476,24 @@
 </section>
   
   <!-- Sezione Pacchetti Wedding + sfondo  -->
-  
 
+<section class="wedding-pack-hero">
+  <div class="overlay-gradient">
+    <div class="content-container">
+      <h2>Pacchetti Wedding</h2>
+      <p>Scegli tra <strong>Basic</strong>, <strong>Classic</strong> e <strong>Premium</strong> per un racconto su misura del tuo matrimonio</p>
+    </div>
+  </div>
+</section>
+
+<style>
 .wedding-pack-hero {
   position: relative;
-  background-image: url('images/covers/background_pack_wedding.jpg');
+  background-image: url('images/covers/background_pack_wedding.jpg'); /* ← Cambia con il percorso corretto */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh; /* Per coprire tutta la schermata */
+  height: 100vh;
   width: 100vw;
   overflow: hidden;
   margin: 0;
@@ -492,11 +501,8 @@
 }
 
 .overlay-gradient {
-  position: absolute; /* CORRETTO */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   background: 
     linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%),
     linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0), rgba(0,0,0,0.3));
@@ -515,15 +521,20 @@
 }
 
 .content-container h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
+  font-weight: bold;
   margin-bottom: 1rem;
+  letter-spacing: 1px;
 }
 
 .content-container p {
   font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #f0f0f0;
 }
-
 </style>
+
 
   
 <section style="
