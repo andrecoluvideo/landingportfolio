@@ -12,26 +12,17 @@
       color: #ffffff;
       font-family: 'Raleway', sans-serif;
     }
-    .hero {
-      background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,1)),
-                  url('images/packs/pack_wedding_basic.jpg') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 48px;
-      color: #ffffff;
-      margin: 0;
-    }
     .content {
       max-width: 800px;
       margin: 60px auto;
       padding: 0 20px;
+      text-align: center;
+    }
+    .content h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 48px;
+      color: #ffffff;
+      margin-bottom: 10px;
     }
     .content h2 {
       font-family: 'Bebas Neue', cursive;
@@ -46,13 +37,14 @@
     }
     .features {
       margin-top: 30px;
+      text-align: left;
     }
     .features li {
       margin-bottom: 10px;
     }
     .cta {
       text-align: center;
-      margin-top: 50px;
+      margin: 40px 0;
     }
     .cta a {
       background-color: #d4af6c;
@@ -67,15 +59,17 @@
     .cta a:hover {
       background-color: #b28d4e;
     }
+    .image {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
 
-  <section class="hero">
-    <h1>Wedding Basic</h1>
-  </section>
-
   <section class="content">
+    <h1>Wedding Basic</h1>
     <h2>€499 – Il pacchetto essenziale ma d’impatto</h2>
     <p>
       Il pacchetto <strong>Wedding Basic</strong> è pensato per chi desidera conservare il ricordo della propria cerimonia in modo semplice ma emozionante.  
@@ -96,6 +90,9 @@
         Prenota il tuo matrimonio
       </a>
     </div>
+
+    <img src="images/packs/pack_wedding_basic.jpg" alt="Wedding Basic" class="image">
+
   </section>
 
 </body>
