@@ -945,19 +945,21 @@
   </div>
 </section>
 
-<!-- Finestra Bio -->
+<!-- Finestra Bio Responsive -->
 <div id="bioPopup" style="
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  width: 92vw;
   max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
   background-color: #0a0a0a;
   border: 2px solid #4caf50;
   border-radius: 16px;
-  padding: 30px;
+  padding: 20px;
   z-index: 9999;
   box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
   animation: fadeIn 0.5s ease forwards;
@@ -965,27 +967,60 @@
   text-align: left;
   font-size: 16px;
   line-height: 1.6;
+  word-wrap: break-word;
 ">
-  <h3 style="font-family: 'Bebas Neue', cursive; font-size: 28px; margin-bottom: 10px;">Chi sono</h3>
-  <p>
-    Sono Andrea Colucci, film maker e storyteller visivo. Vivo in Italia e da diversi anni mi dedico alla produzione di video emozionali, commerciali e musicali. <br><br>
-    Ho iniziato questo percorso da autodidatta, con passione, sperimentazione e un obiettivo chiaro: creare emozione attraverso le immagini.<br><br>
-    Ho diretto più di 300 progetti tra spot, videoclip e contenuti per brand e artisti. I miei video, pubblicati su YouTube e Instagram, hanno superato le 800.000 mila visualizzazioni complessive.
-  </p>
+
+  <h3 style="font-family: 'Bebas Neue', cursive; font-size: 26px; margin-bottom: 16px; text-align: center;">Chi sono</h3>
+
+  <div style="font-size: 16px; color: #ddd;">
+    <p>
+      Sono <strong>Andrea Colucci</strong>, film maker e storyteller visivo. Vivo in Italia e da diversi anni mi dedico alla produzione di <strong>video emozionali, commerciali e musicali</strong>.
+    </p><br>
+    <p>
+      Ho iniziato questo percorso da autodidatta, con passione, sperimentazione e un obiettivo chiaro: <strong>creare emozione attraverso le immagini</strong>.
+    </p><br>
+    <p>
+      Ho diretto più di <strong>300 progetti</strong> tra spot, videoclip e contenuti per brand e artisti. I miei video, pubblicati su <strong>YouTube</strong> e <strong>Instagram</strong>, hanno superato le <strong>800.000 visualizzazioni complessive</strong>.
+    </p>
+  </div>
+
   <div style="text-align: center; margin-top: 30px;">
     <button onclick="closeBio()" style="
       background-color: transparent;
       border: 2px solid #4caf50;
       color: #4caf50;
-      padding: 10px 20px;
+      padding: 10px 24px;
       border-radius: 30px;
       font-weight: bold;
+      font-size: 16px;
       cursor: pointer;
       transition: background 0.3s;
     ">Chiudi</button>
   </div>
 </div>
 
+<!-- Animazioni -->
+<style>
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translate(-50%, -40%);}
+    to {opacity: 1; transform: translate(-50%, -50%);}
+  }
+  @keyframes fadeOut {
+    from {opacity: 1; transform: translate(-50%, -50%);}
+    to {opacity: 0; transform: translate(-50%, -60%);}
+  }
+
+  /* Mobile Fix */
+  @media (max-width: 480px) {
+    #bioPopup {
+      font-size: 15px;
+      padding: 16px;
+      line-height: 1.5;
+    }
+  }
+</style>
+
+<!-- Script -->
 <script>
   const openBtn = document.getElementById("openBioBtn");
   const bioPopup = document.getElementById("bioPopup");
@@ -1003,6 +1038,7 @@
     }, 500);
   }
 </script>
+
 
 </body>
 </html>
