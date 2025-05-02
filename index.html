@@ -150,6 +150,14 @@
       font-weight: bold;
       text-align: center;
     }
+    @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
+}
   </style>
   <script src="https://cdn.counter.dev/script.js" data-id="ad231f5a-8451-4e90-b391-fbde9a857525" data-utcoffset="2"></script>
 </head>
@@ -167,9 +175,22 @@
   <!-- Testo sopra -->
   <div class="header-content" style="position: relative; z-index: 3; padding: 20px; text-align: center; animation: fadeUp 2s ease forwards;">
     <h1 style="font-family: 'Bebas Neue', cursive; font-size: 72px; color: #ffffff;">Andrea Colucci</h1>
-    <p style="font-size: 24px; color: #cccccc; margin-bottom: 30px;">Film Maker | Storyteller Visivo</p>
+    <p style="font-size: 24px; color: #cccccc; margin-bottom: 30px;">Film Maker | Storyteller Visivo, Spot Commerciali, Wedding, Music</p>
     <a href="#portfolio" style="background: #4caf50; padding: 15px 30px; border-radius: 50px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: 600;">Scopri il mio lavoro</a>
-  </div>
+    <a href="#" id="openBioBtn" style="
+  display: inline-block;
+  margin-top: 20px;
+  background: transparent;
+  color: #4caf50;
+  padding: 12px 26px;
+  border: 2px solid #4caf50;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+">Scopri chi sono</a>
+ </div>
 
 </header>
 
@@ -924,6 +945,64 @@
   </div>
 </section>
 
+<!-- Finestra Bio -->
+<div id="bioPopup" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: #0a0a0a;
+  border: 2px solid #4caf50;
+  border-radius: 16px;
+  padding: 30px;
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+  animation: fadeIn 0.5s ease forwards;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.6;
+">
+  <h3 style="font-family: 'Bebas Neue', cursive; font-size: 28px; margin-bottom: 10px;">Chi sono</h3>
+  <p>
+    Sono Andrea Colucci, film maker e storyteller visivo. Vivo in Italia e da diversi anni mi dedico alla produzione di video emozionali, commerciali e musicali. <br><br>
+    Ho iniziato questo percorso da autodidatta, con passione, sperimentazione e un obiettivo chiaro: creare emozione attraverso le immagini.<br><br>
+    Ho diretto più di 300 progetti tra spot, videoclip e contenuti per brand e artisti. I miei video, pubblicati su YouTube e Instagram, hanno superato le 800.000 mila visualizzazioni complessive.
+  </p>
+  <div style="text-align: center; margin-top: 30px;">
+    <button onclick="closeBio()" style="
+      background-color: transparent;
+      border: 2px solid #4caf50;
+      color: #4caf50;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    ">Chiudi</button>
+  </div>
+</div>
+
+<script>
+  const openBtn = document.getElementById("openBioBtn");
+  const bioPopup = document.getElementById("bioPopup");
+
+  openBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    bioPopup.style.display = "block";
+    bioPopup.style.animation = "fadeIn 0.5s ease forwards";
+  });
+
+  function closeBio() {
+    bioPopup.style.animation = "fadeOut 0.5s ease forwards";
+    setTimeout(() => {
+      bioPopup.style.display = "none";
+    }, 500);
+  }
+</script>
 
 </body>
 </html>
