@@ -1,847 +1,662 @@
-<!DOCTYPE html>
+<!-- =======================
+     PARTE 1 / 3 — HEAD + HEADER + INTRO (COMPATTA)
+     ======================= -->
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Andrea Colucci - Film Maker Portfolio</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Favicons (robust) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Counter -->
+  <script src="https://cdn.counter.dev/script.js"
+          data-id="ad231f5a-8451-4e90-b391-fbde9a857525"
+          data-utcoffset="2"></script>
+
   <style>
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ====== BASE COMPATTA ====== */
+    :root{
+      --bg:#0a0a0a; --fg:#fff; --muted:#ccc; --accent:#4caf50;
+      --sec-pad:56px;           /* era 100px */
+      --sec-pad-mobile:40px;    /* era 100px */
+      --gap:22px;               /* era 30px */
+      --card-radius:14px;
+      --shadow-soft:0 0 0 2px rgba(255,255,255,.05), 0 6px 20px rgba(0,0,0,.25);
+      --h2-mb:28px;             /* era 40px */
+      --p-mb:14px;              /* era 20px/50px */
+      --iframe-h:220px;         /* altezza card video */
     }
-    html, body {
-      height: 100%;
-      font-family: 'Raleway', sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%;scroll-behavior:smooth}
+    body{
+      font-family:'Raleway',sans-serif;background:var(--bg);color:var(--fg);overflow-x:hidden;
     }
-    body::before {
-      content: \"\";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    header {
-      width: 100%;
-      height: 100vh;
-      background: #0a0a0a;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-    }
-    header video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      filter: brightness(0.4);
-      z-index: 1;
-    }
-    .header-content {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-      animation: fadeUp 2s ease forwards;
-    }
-    .header-content h1 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 72px;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      color: #ffffff;
-    }
-    .header-content p {
-      font-size: 24px;
-      font-weight: 400;
-      color: #cccccc;
-      margin-bottom: 30px;
-    }
-    .header-content a {
-      display: inline-block;
-      background: #4caf50;
-      color: #ffffff;
-      padding: 15px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .header-content a:hover {
-      background: #3e8e41;
-    }
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    body::before{
+      content:"";position:fixed;inset:0;
+      background:radial-gradient(ellipse at center, rgba(255,255,255,.02) 0%, transparent 70%);
+      pointer-events:none;z-index:0;
     }
 
-    @media (max-width: 768px) {
-      .header-content h1 {
-        font-size: 48px;
-      }
-      .header-content p {
-        font-size: 18px;
-      }
-      .header-content a {
-        font-size: 16px;
-        padding: 12px 24px;
-      }
-    }
-    .cover-section {
-      width: 100%;
-      height: 40vh;
-      background-size: cover;
-      background-position: center;
+    /* Titoli compatti */
+    h1,h2,h3{line-height:1.05}
+    h2{font-family:'Bebas Neue',cursive;font-size:42px;margin:0 0 var(--h2-mb)}
+    p{color:var(--muted);font-size:20px;margin-bottom:var(--p-mb)}
+
+    /* Sezioni compatte */
+    section{position:relative;padding:var(--sec-pad) 20px;z-index:1}
+    @media (max-width:768px){
+      :root{ --sec-pad:var(--sec-pad-mobile) }
+      h2{font-size:36px}
+      p{font-size:18px}
     }
 
-    .packs-section {
-      padding: 40px 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
+    /* ====== HEADER ====== */
+    header{
+      position:relative;width:100%;height:88vh; /* era 100vh */
+      overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;
+      background:url('images/covers/cover_landing_hero.jpg') center/cover no-repeat;
+    }
+    header::before{ /* overlay più leggero */
+      content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:1;
+    }
+    header::after{ /* sfumatura in basso, più sottile */
+      content:"";position:absolute;left:0;right:0;bottom:0;height:22%;
+      background:linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--bg) 100%);z-index:2;
+    }
+    .header-content{
+      position:relative;z-index:3;padding:16px;animation:fadeUp 1.2s ease forwards;
+      text-shadow:0 8px 28px rgba(0,0,0,.6);
+    }
+    .header-content h1{
+      font-family:'Bebas Neue',cursive;font-size:66px;letter-spacing:2px;margin-bottom:6px;
+    }
+    .header-content p{font-size:22px;margin-bottom:18px}
+    .cta{
+      display:inline-block;background:var(--accent);color:#fff;padding:12px 24px;border-radius:50px;
+      text-decoration:none;font-weight:700;transition:transform .2s, background .25s;margin:0 8px;
+    }
+    .cta:hover{background:#3e8e41;transform:translateY(-1px)}
+    .cta--outline{
+      background:transparent;border:2px solid var(--accent);color:var(--accent);
     }
 
-    .pack {
-      background-color: #111;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+    /* ====== CARD VIDEO RIUSABILI ====== */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--gap)}
+    .video-card{
+      background:#111;border-radius:var(--card-radius);overflow:hidden;box-shadow:var(--shadow-soft);
+      transition:transform .35s ease, box-shadow .35s ease;
     }
+    .video-card:hover{transform:scale(1.03)}
+    .video-card iframe{width:100%;height:var(--iframe-h);border:0}
 
-    .pack:hover {
-      transform: scale(1.02);
-    }
+    /* Luminosità/contrasto su tutti i video */
+    .video-bright iframe{filter:brightness(1.25) contrast(1.12) saturate(1.08);transition:filter .3s}
+    .video-card:hover iframe{filter:brightness(1.38) contrast(1.18) saturate(1.12)}
 
-    .pack img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-    }
-
-    .pack-title {
-      padding: 12px;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
-    }
-    @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeOut {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(20px); }
-}
+    /* Animazioni base */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
   </style>
-  <script src="https://cdn.counter.dev/script.js" data-id="ad231f5a-8451-4e90-b391-fbde9a857525" data-utcoffset="2"></script>
 </head>
 <body>
 
-  
-<header style="position: relative; width: 100%; height: 100vh; overflow: hidden; background: url('images/covers/cover_landing_hero.jpg') center/cover no-repeat; background-size: cover;">
+  <!-- ====== HEADER COMPATTO ====== -->
+  <header>
+    <div class="header-content">
+      <h1>Andrea Colucci</h1>
+      <p>Film Maker | Storyteller Visivo · Spot Commerciali · Wedding · Music</p>
+      <a class="cta" href="#portfolio">Scopri il mio lavoro</a>
+      <a class="cta cta--outline" id="openBioBtn" href="#">Scopri chi sono</a>
+    </div>
+  </header>
 
-  <!-- Overlay nero leggero -->
-  <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 1;"></div>
+  <!-- ====== INTRO / PORTFOLIO (sfondo elegante compatto) ====== -->
+  <section id="portfolio" aria-label="Introduzione">
+    <!-- Background immagine + sfumatura, più discreta -->
+    <div style="
+      position:absolute;inset:0;opacity:.55;pointer-events:none;z-index:-1;
+      background:
+        linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,.65) 20%, rgba(10,10,10,.55) 55%, rgba(10,10,10,.75) 80%, rgba(10,10,10,1) 100%),
+        url('images/covers/cover_intro_commerciale.jpg') center top / cover no-repeat;
+    "></div>
 
-  <!-- Filtro di sfumatura verso il basso -->
-  <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 30%; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #0a0a0a 100%); z-index: 2;"></div>
+    <div style="max-width:980px;margin:0 auto;text-align:center">
+      <h2>Diamo vita alla tua storia</h2>
+      <p>Ogni progetto è un viaggio nell'emozione, nell'identità e nel valore umano.</p>
+      <p>Racconto il tuo mondo con immagini che parlano direttamente al cuore.</p>
+      <p style="margin-bottom:10px">Lascia che il tuo messaggio diventi indimenticabile.</p>
+    </div>
+  </section>
+  <!-- FINE PARTE 1 / 3 -->
+<!-- =======================
+     PARTE 2 / 3 — SEZIONI VIDEO + PACCHETTI (COMPATTE)
+     ======================= -->
 
-  <!-- Testo sopra -->
-  <div class="header-content" style="position: relative; z-index: 3; padding: 20px; text-align: center; animation: fadeUp 2s ease forwards;">
-    <h1 style="font-family: 'Bebas Neue', cursive; font-size: 72px; color: #ffffff;">Andrea Colucci</h1>
-    <p style="font-size: 24px; color: #cccccc; margin-bottom: 30px;">Film Maker | Storyteller Visivo, Spot Commerciali, Wedding, Music</p>
-    <a href="#portfolio" style="background: #4caf50; padding: 15px 30px; border-radius: 50px; color: #ffffff; text-decoration: none; font-size: 18px; font-weight: 600;">Scopri il mio lavoro</a>
-    <a href="#" id="openBioBtn" style="
-  display: inline-block;
-  margin-top: 20px;
-  background: transparent;
-  color: #4caf50;
-  padding: 12px 26px;
-  border: 2px solid #4caf50;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s;
-">Scopri chi sono</a>
- </div>
-
-</header>
-
-
-
-
-<!-- Sezione Motivazionale con sfondo elegante -->
-<section id="portfolio" style="position: relative; padding: 100px 20px; z-index: 0; background-color: transparent;">
-
-  <!-- SFONDO immagine + sfumatura -->
-  <div style="
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to bottom,
-      rgba(10,10,10,1) 0%,
-      rgba(10,10,10,0.7) 20%,
-      rgba(10,10,10,0.6) 50%,
-      rgba(10,10,10,0.7) 80%,
-      rgba(10,10,10,1) 100%),
-      url('images/covers/cover_intro_commerciale.jpg') center top /cover no-repeat;
-    opacity: 0.6;
-    z-index: 1;
-    pointer-events: none;
-  "></div>
-
-  <!-- CONTENUTO -->
-  <div style="position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; text-align: center;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 48px; margin-bottom: 40px; color: #ffffff; animation: fadeUp 1.5s ease forwards;">
-      Diamo vita alla tua storia
-    </h2>
-    <p style="font-size: 22px; color: #cccccc; margin-bottom: 20px; animation: fadeUp 2s ease forwards;">
-      Ogni progetto che realizzo è un viaggio nell'emozione, nell'identità e nel valore umano.
-    </p>
-    <p style="font-size: 22px; color: #cccccc; margin-bottom: 20px; animation: fadeUp 2.5s ease forwards;">
-      Racconto il tuo mondo attraverso immagini che parlano direttamente al cuore.
-    </p>
-    <p style="font-size: 22px; color: #cccccc; margin-bottom: 50px; animation: fadeUp 3s ease forwards;">
-      Lascia che il tuo messaggio diventi indimenticabile.
-    </p>
-  </div>
-
-</section>
-
-  <!-- FILTRO: maggiore luminosità + contrasto su tutti i video -->
-<style>
-  .video-bright iframe {
-    filter: brightness(1.25) contrast(1.15) saturate(1.1);
-    transition: filter 0.4s ease;
-  }
-  .video-bright:hover iframe {
-    filter: brightness(1.4) contrast(1.2) saturate(1.15);
-  }
-</style>
-
-  <!-- ========== VIDEO: COMMERCIALI (3) ========== -->
-<section style="padding:100px 20px; background-image:
-  linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
-  url('images/covers/background_pack_flare.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <h2 style="font-family:'Bebas Neue', cursive; font-size:48px; text-align:center; margin-bottom:40px; color:#ffffff;">Commerciali</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
-      
+<!-- ========== VIDEO: COMMERCIALI (3) ========== -->
+<section style="padding-top:48px;padding-bottom:48px;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.08) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
+    url('images/covers/background_pack_flare.jpg');
+  background-size:cover;background-position:center;background-repeat:no-repeat;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center">Commerciali</h2>
+    <div class="grid">
       <!-- VIDEO 1 -->
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(76,175,80,0.1), 0 0 5px 3px rgba(76,175,80,0.05); transition:transform .4s, box-shadow .4s;"
-           onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.4), 0 0 25px 10px rgba(76,175,80,0.2)'"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.1), 0 0 5px 3px rgba(76,175,80,0.05)'">
-        <iframe src="https://player.vimeo.com/video/988374113?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(76,175,80,0.12), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/988374113?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
 
       <!-- VIDEO 2 -->
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(76,175,80,0.1), 0 0 5px 3px rgba(76,175,80,0.05); transition:transform .4s, box-shadow .4s;"
-           onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.4), 0 0 25px 10px rgba(76,175,80,0.2)'"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.1), 0 0 5px 3px rgba(76,175,80,0.05)'">
-        <iframe src="https://player.vimeo.com/video/967274150?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(76,175,80,0.12), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/967274150?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
 
       <!-- VIDEO 3 -->
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(76,175,80,0.1), 0 0 5px 3px rgba(76,175,80,0.05); transition:transform .4s, box-shadow .4s;"
-           onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.4), 0 0 25px 10px rgba(76,175,80,0.2)'"
-           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.1), 0 0 5px 3px rgba(76,175,80,0.05)'">
-        <iframe src="https://player.vimeo.com/video/1077604297?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(76,175,80,0.12), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/1077604297?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ========== VIDEO: WEDDING (2) ========== -->
-<section style="padding:100px 20px; background-image:
-  linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
-  url('images/covers/background_pack_wedding.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <h2 style="font-family:'Bebas Neue', cursive; font-size:48px; text-align:center; margin-bottom:40px; color:#ffffff;">Wedding</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
-      
+<section style="padding-top:48px;padding-bottom:48px;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.08) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
+    url('images/covers/background_pack_wedding.jpg');
+  background-size:cover;background-position:center;background-repeat:no-repeat;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center">Wedding</h2>
+    <div class="grid">
       <!-- Wedding 1 -->
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(133,94,66,0.3), 0 0 20px 6px rgba(133,94,66,0.1); transition: transform .4s;"
-           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <iframe src="https://player.vimeo.com/video/988376023?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(133,94,66,0.28), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/988376023?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
 
       <!-- Wedding 2 -->
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(133,94,66,0.3), 0 0 20px 6px rgba(133,94,66,0.1); transition: transform .4s;"
-           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <iframe src="https://player.vimeo.com/video/1025024490?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(133,94,66,0.28), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/1025024490?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ========== VIDEO: BRAND & TRAVEL (3) ========== -->
-<section style="padding:100px 20px; background-image:
-  linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
-  url('images/covers/background_pack_musicvideo.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <h2 style="font-family:'Bebas Neue', cursive; font-size:48px; text-align:center; margin-bottom:40px; color:#ffffff;">Brand & Travel</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
-
+<section style="padding-top:48px;padding-bottom:48px;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.08) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
+    url('images/covers/background_pack_musicvideo.jpg');
+  background-size:cover;background-position:center;background-repeat:no-repeat;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center">Brand & Travel</h2>
+    <div class="grid">
       <!-- Travel 1 -->
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08); transition: transform .4s;"
-           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <iframe src="https://player.vimeo.com/video/1041605119?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(212,175,108,0.28), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/1041605119?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
 
       <!-- Travel 2 -->
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08); transition: transform .4s;"
-           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <iframe src="https://player.vimeo.com/video/1080060195?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(212,175,108,0.28), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/1080060195?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
 
       <!-- Travel 3 -->
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08); transition: transform .4s;"
-           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <iframe src="https://player.vimeo.com/video/967514987?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(212,175,108,0.28), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/967514987?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ========== VIDEO: URBAN SYMPHONY (1) ========== -->
-<section style="padding:100px 20px; background:#0a0a0a;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <h2 style="font-family:'Bebas Neue', cursive; font-size:48px; text-align:center; margin-bottom:40px; color:#ffffff;">Urban Symphony</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px; max-width:1000px; margin:0 auto;">
-      <div style="background-color:#111; border-radius:16px; overflow:hidden; box-shadow:0 0 0 2px rgba(155,89,182,0.3), 0 0 20px 6px rgba(155,89,182,0.1); transition: transform .4s;"
-           onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-        <iframe src="https://player.vimeo.com/video/1033671713?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
-                style="width:100%; height:220px; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<section style="padding-top:40px;padding-bottom:40px;background:#0a0a0a;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <h2 style="text-align:center">Urban Symphony</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));max-width:900px;margin:0 auto">
+      <div class="video-card video-bright"
+           style="box-shadow:0 0 0 2px rgba(155,89,182,0.30), 0 6px 18px rgba(0,0,0,.25)">
+        <iframe
+          src="https://player.vimeo.com/video/1033671713?quality=1080p&autoplay=1&muted=1&loop=1&autopause=0&controls=0&title=0&byline=0&portrait=0&pip=0&playsinline=1"
+          allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Sezione Pacchetti Video Commerciali con sfondo -->
+<!-- =======================
+     PACCHETTI — COMMERCIALI
+     ======================= -->
 <section id="pacchetti-videoprofessionali" style="
-  padding: 100px 20px;
-  background-image: 
-    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
+  padding-top:48px;padding-bottom:48px;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.08) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
     url('images/covers/background_pack_flare.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 48px; text-align: center; margin-bottom: 40px; color: #ffffff;">
-      Pacchetti Video Commerciali
-    </h2>
+  background-size:cover;background-position:center;background-repeat:no-repeat;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center">Pacchetti Video Commerciali</h2>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-
-      <!-- Tutti i pacchetti inseriti qui -->
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px;">
       <!-- Basic -->
-      <a href="pack_basic.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.4), 0 0 25px 10px rgba(76,175,80,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1)';">
-          <img src="images/packs/pack_basic_miniatura.jpg" alt="Basic Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-            display: flex; flex-direction: column; justify-content: center; text-align: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Basic</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Video breve (&lt;1 min), ideale per social media. Riprese e montaggio base.</p>
-            <div style="font-size: 24px; color: #4caf50;">€399</div>
+      <a href="pack_basic.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/pack_basic_miniatura.jpg" alt="Basic Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;
+            background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Basic</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Video breve (&lt;1 min), ideale per social. Riprese e montaggio base.</p>
+            <div style="font-size:22px;color:#4caf50">€399</div>
           </div>
         </div>
       </a>
 
       <!-- Standard -->
-      <a href="pack_standard.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.4), 0 0 25px 10px rgba(76,175,80,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1)';">
-          <img src="images/packs/pack_standard_miniatura.jpg" alt="Standard Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-            display: flex; flex-direction: column; justify-content: center; text-align: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Standard</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Video promozionale (&lt;3 min), ideale per aziende. Montaggio avanzato e color grading.</p>
-            <div style="font-size: 24px; color: #4caf50;">€599</div>
+      <a href="pack_standard.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/pack_standard_miniatura.jpg" alt="Standard Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Standard</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Promo (&lt;3 min) per aziende. Montaggio avanzato e color grading.</p>
+            <div style="font-size:22px;color:#4caf50">€599</div>
           </div>
         </div>
       </a>
 
       <!-- Premium -->
-      <a href="pack_premium.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.4), 0 0 25px 10px rgba(76,175,80,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1)';">
-          <img src="images/packs/pack_premium_miniatura.jpg" alt="Premium Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-            display: flex; flex-direction: column; justify-content: center; text-align: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Premium</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Video cinematografico (&gt;3 min), storytelling personalizzato, drone incluso.</p>
-            <div style="font-size: 24px; color: #4caf50;">€999</div>
+      <a href="pack_premium.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/pack_premium_miniatura.jpg" alt="Premium Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Premium</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Cinematografico (&gt;3 min), storytelling personalizzato, drone incluso.</p>
+            <div style="font-size:22px;color:#4caf50">€999</div>
           </div>
         </div>
       </a>
 
       <!-- Elite Project -->
-      <a href="pack_elite.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.4), 0 0 25px 10px rgba(76,175,80,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1)';">
-          <img src="images/packs/pack_elite_miniatura.jpg" alt="Elite Project Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-            display: flex; flex-direction: column; justify-content: center; text-align: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Elite Project</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Produzione avanzata, più giorni di ripresa, multi-location, regia cinematografica.</p>
-            <div style="font-size: 24px; color: #4caf50;">€1.999</div>
+      <a href="pack_elite.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/pack_elite_miniatura.jpg" alt="Elite Project Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Elite Project</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Produzione avanzata, più giorni, multi-location, regia cinematografica.</p>
+            <div style="font-size:22px;color:#4caf50">€1.999</div>
           </div>
         </div>
       </a>
 
       <!-- Full Storytelling -->
-      <a href="pack_fullstorytelling.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.4), 0 0 25px 10px rgba(76,175,80,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 20px 6px rgba(76,175,80,0.1)';">
-          <img src="images/packs/pack_fullstorytelling_miniatura.jpg" alt="Full Storytelling Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-            display: flex; flex-direction: column; justify-content: center; text-align: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Full Storytelling</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Piano narrativo completo: video principali, short clips, ideazione contenuti continua.</p>
-            <div style="font-size: 24px; color: #4caf50;">€3.500</div>
+      <a href="pack_fullstorytelling.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/pack_fullstorytelling_miniatura.jpg" alt="Full Storytelling Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Full Storytelling</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Piano narrativo completo: video principali, short clips, ideazione continua.</p>
+            <div style="font-size:22px;color:#4caf50">€3.500</div>
           </div>
         </div>
       </a>
-
     </div>
   </div>
 </section>
 
-
-      <!-- Sezione Pacchetti Wedding -->
+<!-- =======================
+     PACCHETTI — WEDDING
+     ======================= -->
 <section id="pacchetti-wedding" style="
-  padding: 100px 20px;
-  background-image: 
-    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
+  padding-top:48px;padding-bottom:48px;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.08) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
     url('images/covers/background_pack_wedding.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 48px; text-align: center; margin-bottom: 40px; color: #ffffff;">
-      Pacchetti Wedding
-    </h2>
+  background-size:cover;background-position:center;background-repeat:no-repeat;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center">Pacchetti Wedding</h2>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px;">
       <!-- Wedding Basic -->
-      <a href="wedding_basic.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(212,175,108,0.5), 0 0 30px 10px rgba(212,175,108,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08)';">
-          
-          <img src="images/packs/pack_wedding_basic.jpg" alt="Wedding Basic" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)); text-align: center;
-            display: flex; flex-direction: column; justify-content: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Wedding Basic</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Riprese della cerimonia + breve montaggio romantico per social.</p>
-            <div style="font-size: 24px; color: #d4af6c;">€499</div>
+      <a href="wedding_basic.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(212,175,108,.28), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(212,175,108,.46), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(212,175,108,.28), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/pack_wedding_basic.jpg" alt="Wedding Basic" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.85));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Wedding Basic</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Cerimonia + breve montaggio romantico per social.</p>
+            <div style="font-size:22px;color:#d4af6c">€499</div>
           </div>
         </div>
       </a>
 
       <!-- Wedding Classic -->
-      <a href="wedding_classic.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(212,175,108,0.5), 0 0 30px 10px rgba(212,175,108,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08)';">
-          
-          <img src="images/packs/pack_wedding_classic.jpg" alt="Wedding Classic" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)); text-align: center;
-            display: flex; flex-direction: column; justify-content: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Wedding Classic</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Cerimonia + ricevimento + video emozionale montato in stile cinematografico.</p>
-            <div style="font-size: 24px; color: #d4af6c;">€1.200</div>
+      <a href="wedding_classic.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(212,175,108,.28), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(212,175,108,.46), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(212,175,108,.28), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/pack_wedding_classic.jpg" alt="Wedding Classic" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.85));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Wedding Classic</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Cerimonia + ricevimento, montaggio emozionale cinematografico.</p>
+            <div style="font-size:22px;color:#d4af6c">€1.200</div>
           </div>
         </div>
       </a>
 
       <!-- Wedding Premium -->
-      <a href="wedding_premium.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(212,175,108,0.5), 0 0 30px 10px rgba(212,175,108,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(212,175,108,0.3), 0 0 20px 6px rgba(212,175,108,0.08)';">
-          
-          <img src="images/packs/pack_wedding_premium.jpg" alt="Wedding Premium" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)); text-align: center;
-            display: flex; flex-direction: column; justify-content: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Wedding Premium</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Giorno completo + riprese drone + video lungo + trailer breve.</p>
-            <div style="font-size: 24px; color: #d4af6c;">€1.999</div>
+      <a href="wedding_premium.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(212,175,108,.28), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(212,175,108,.46), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(212,175,108,.28), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/pack_wedding_premium.jpg" alt="Wedding Premium" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.85));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Wedding Premium</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Giorno completo + drone + video lungo + trailer breve.</p>
+            <div style="font-size:22px;color:#d4af6c">€1.999</div>
           </div>
         </div>
       </a>
-
     </div>
   </div>
 </section>
 
-
-
-  <!-- Sezione Pacchetti Music Video -->
+<!-- =======================
+     PACCHETTI — MUSIC VIDEO
+     ======================= -->
 <section id="pacchetti-musicvideo" style="
-  padding: 100px 20px;
-  background-image: 
-    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
+  padding-top:48px;padding-bottom:48px;
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.08) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
     url('images/covers/background_pack_musicvideo.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-">
+  background-size:cover;background-position:center;background-repeat:no-repeat;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="text-align:center">Pacchetti Music Video</h2>
 
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 48px; text-align: center; margin-bottom: 40px; color: #ffffff;">
-      Pacchetti Music Video
-    </h2>
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px;">
       <!-- Instagram Freestyle -->
-      <a href="music_basic.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(155,89,182,0.3), 0 0 20px 6px rgba(155,89,182,0.1);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(155,89,182,0.5), 0 0 30px 10px rgba(155,89,182,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(155,89,182,0.3), 0 0 20px 6px rgba(155,89,182,0.1)';">
-
-          <img src="images/packs/music_freestyle.jpg" alt="Instagram Freestyle" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); text-align: center;
-            display: flex; flex-direction: column; justify-content: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Instagram Freestyle</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Video rapido e d’impatto (&lt;1 minuto), pensato per Instagram. Look dinamico e stile urbano.</p>
-            <div style="font-size: 24px; color: #9b59b6;">€400</div>
+      <a href="music_basic.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(155,89,182,.30), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(155,89,182,.5), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(155,89,182,.30), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/music_freestyle.jpg" alt="Instagram Freestyle" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.82));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Instagram Freestyle</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Clip rapida (&lt;1 min) per IG. Look dinamico e stile urbano.</p>
+            <div style="font-size:22px;color:#9b59b6">€400</div>
           </div>
         </div>
       </a>
 
       <!-- Video Intro -->
-      <a href="music_intro.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(155,89,182,0.3), 0 0 20px 6px rgba(155,89,182,0.1);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(155,89,182,0.5), 0 0 30px 10px rgba(155,89,182,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(155,89,182,0.3), 0 0 20px 6px rgba(155,89,182,0.1)';">
-
-          <img src="images/packs/music_intro.jpg" alt="Video Intro" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); text-align: center;
-            display: flex; flex-direction: column; justify-content: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Video Intro</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Fino a 2 minuti. Ideale per YouTube, presentazioni o apertura di singoli. Montaggio energico.</p>
-            <div style="font-size: 24px; color: #9b59b6;">€600</div>
+      <a href="music_intro.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(155,89,182,.30), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(155,89,182,.5), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(155,89,182,.30), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/music_intro.jpg" alt="Video Intro" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.82));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Video Intro</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Fino a 2 minuti. Ideale per YouTube, presentazioni o apertura di singoli.</p>
+            <div style="font-size:22px;color:#9b59b6">€600</div>
           </div>
         </div>
       </a>
 
       <!-- Video Official -->
-      <a href="music_official.html" style="text-decoration: none;">
-        <div style="position: relative; border-radius: 12px; width: 280px; overflow: hidden;
-          background-color: #000;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          box-shadow: 0 0 0 2px rgba(155,89,182,0.3), 0 0 20px 6px rgba(155,89,182,0.1);"
-          onmouseover="this.style.transform='scale(1.04)'; this.style.boxShadow='0 0 0 2px rgba(155,89,182,0.5), 0 0 30px 10px rgba(155,89,182,0.2)';"
-          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(155,89,182,0.3), 0 0 20px 6px rgba(155,89,182,0.1)';">
-
-          <img src="images/packs/music_official.jpg" alt="Video Official" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          
-          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 30px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); text-align: center;
-            display: flex; flex-direction: column; justify-content: center;">
-            <h3 style="font-size: 22px; color: #ffffff; margin-bottom: 10px;">Video Official</h3>
-            <p style="font-size: 16px; color: #dddddd; margin-bottom: 20px;">Durata 3+ minuti. Video completo, narrazione musicale, riprese multiple e tutta l’attrezzatura inclusa.</p>
-            <div style="font-size: 24px; color: #9b59b6;">€899</div>
+      <a href="music_official.html" style="text-decoration:none;">
+        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
+          transition:transform .3s, box-shadow .3s;
+          box-shadow:0 0 0 2px rgba(155,89,182,.30), 0 10px 26px rgba(0,0,0,.35);"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(155,89,182,.5), 0 14px 34px rgba(0,0,0,.45)'"
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(155,89,182,.30), 0 10px 26px rgba(0,0,0,.35)'">
+          <img src="images/packs/music_official.jpg" alt="Video Official" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.22), rgba(0,0,0,.82));
+            display:flex;flex-direction:column;justify-content:center;text-align:center">
+            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Video Official</h3>
+            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Durata 3+ min. Narrazione musicale, riprese multiple, attrezzatura inclusa.</p>
+            <div style="font-size:22px;color:#9b59b6">€899</div>
           </div>
         </div>
       </a>
-
     </div>
   </div>
 </section>
+<!-- FINE PARTE 2 / 3 -->
+<!-- =======================
+     PARTE 3 / 3 — CTA + FOOTER + POLICY + BIO MODAL + SCRIPT
+     ======================= -->
 
-
-  
-<!-- Footer con sfondo cinematografico + sfumatura sopra e sotto -->
-<footer style="
-  position: relative;
-  background: url('images/covers/footer_background_cinematic.jpg') center/cover no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 80px 20px 60px;
-  text-align: center;
-  overflow: hidden;
+<!-- ========== CTA: Crea il tuo Personaggio con l'IA (compatta) ========== -->
+<section style="
+  text-align:center;
+  padding:44px 20px;
+  background:
+    linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.55) 20%, rgba(10,10,10,0.55) 80%, rgba(10,10,10,1) 100%),
+    url('images/covers/cover_personaggi_IA.jpg') center/cover no-repeat;
+  background-position:center 30%;
 ">
+  <div style="max-width:800px;margin:0 auto">
+    <h2 style="font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:.5px;margin-bottom:12px">🎨 Crea il tuo Personaggio con l'IA</h2>
+    <a href="https://gumroad-landing-sigma.vercel.app/" target="_blank"
+       style="display:inline-block;background:#4caf50;padding:10px 22px;border-radius:42px;font-size:16px;font-weight:700;color:#fff;text-decoration:none;transition:transform .2s,opacity .2s"
+       onmouseover="this.style.transform='translateY(-1px)';this.style.opacity='0.95'"
+       onmouseout="this.style.transform='translateY(0)';this.style.opacity='1'">
+       Scopri i Packs Disponibili
+    </a>
+  </div>
+</section>
 
-  <!-- Sfumatura sopra -->
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(10,10,10,1), rgba(10,10,10,0));
-    z-index: 1;
-  "></div>
+<!-- ========== FOOTER (compatto) ========== -->
+<footer style="
+  position:relative;
+  background:url('images/covers/footer_background_cinematic.jpg') center/cover no-repeat;
+  padding:56px 20px 28px;
+  text-align:center;
+  overflow:hidden;
+">
+  <!-- sfumature -->
+  <div style="position:absolute;inset:0;pointer-events:none">
+    <div style="position:absolute;top:0;left:0;width:100%;height:80px;background:linear-gradient(to bottom, rgba(10,10,10,1), rgba(10,10,10,0))"></div>
+    <div style="position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to top, rgba(10,10,10,1), rgba(10,10,10,0))"></div>
+  </div>
 
-  <!-- Sfumatura sotto -->
-  <div style="
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to top, rgba(10,10,10,1), rgba(10,10,10,0));
-    z-index: 1;
-  "></div>
-
-  <!-- Contenuto footer -->
-  <div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto;">
-
-    <h3 style="font-family: 'Bebas Neue', cursive; font-size: 28px; color: #ffffff; margin-bottom: 10px;">Seguimi sui social</h3>
-    <div style="margin-bottom: 30px;">
-      <a href="https://instagram.com/andrecolu_video" target="_blank" style="color: #4caf50; margin: 0 15px; font-size: 20px; text-decoration: none;">Instagram</a>
-      |
-      <a href="https://youtube.com/@andrecolu_video" target="_blank" style="color: #4caf50; margin: 0 15px; font-size: 20px; text-decoration: none;">YouTube</a>
-      |
-      <a href="https://vimeo.com/andrecolu_video" target="_blank" style="color: #4caf50; margin: 0 15px; font-size: 20px; text-decoration: none;">Vimeo</a>
+  <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto">
+    <h3 style="font-family:'Bebas Neue',cursive;font-size:26px;margin-bottom:8px">Seguimi sui social</h3>
+    <div style="margin-bottom:18px;font-size:18px">
+      <a href="https://instagram.com/andrecolu_video" target="_blank" style="color:#4caf50;text-decoration:none;margin:0 10px">Instagram</a> |
+      <a href="https://youtube.com/@andrecolu_video" target="_blank" style="color:#4caf50;text-decoration:none;margin:0 10px">YouTube</a> |
+      <a href="https://vimeo.com/andrecolu_video" target="_blank" style="color:#4caf50;text-decoration:none;margin:0 10px">Vimeo</a>
     </div>
 
-    <h4 style="font-size: 18px; color: #ccc; margin-bottom: 8px;">Oppure contattami</h4>
-    <a href="mailto:andreacolucci@hotmail.it" style="font-size: 16px; color: #4caf50; text-decoration: none;">andreacolucci@hotmail.it</a>
+    <div style="margin-bottom:8px;color:#ccc">Oppure contattami</div>
+    <a href="mailto:andreacolucci@hotmail.it" style="color:#4caf50;text-decoration:none;font-weight:600">andreacolucci@hotmail.it</a>
 
-    <p style="color: #999; font-size: 14px; margin-top: 40px;">© 2025 Andrea Colucci | Film Maker Portfolio</p>
-
+    <p style="color:#9a9a9a;font-size:13px;margin-top:24px">© 2025 Andrea Colucci | Film Maker Portfolio</p>
   </div>
 </footer>
 
-
-
-<!-- Sezione Crea il tuo Personaggio con sfondo -->
-<section style="
-  text-align: center;
-  padding: 60px 20px;
-  min-height: 50vh;
-  background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.5) 20%, rgba(10,10,10,0.5) 80%, rgba(10,10,10,1) 100%),
-              url('images/covers/cover_personaggi_IA.jpg') center/cover no-repeat;
-  background-size: cover;
-  background-position: center 30%;
-">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 32px; color: #ffffff; margin-bottom: 20px;">🎨 Crea il tuo Personaggio con l'IA</h2>
-    <a href="https://gumroad-landing-sigma.vercel.app/" target="_blank" style="background: #4caf50; padding: 10px 20px; border-radius: 50px; font-size: 18px; color: #fff; text-decoration: none; font-weight: bold; transition: background 0.3s;">Scopri i Packs Disponobili</a>
+<!-- ========== POLICY (accordion per ridurre scroll) ========== -->
+<section style="background:#000;padding:28px 16px;text-align:center;font-size:14px;color:#777">
+  <div style="max-width:980px;margin:0 auto">
+    <a href="#privacy" style="color:#4caf50;text-decoration:none;margin:0 10px">Privacy Policy</a> |
+    <a href="#cookie"  style="color:#4caf50;text-decoration:none;margin:0 10px">Cookie Policy</a> |
+    <a href="#terms"   style="color:#4caf50;text-decoration:none;margin:0 10px">Terms of Service</a>
   </div>
 </section>
 
-<!-- Policy -->
-<section style="background-color: #000; padding: 40px 20px; text-align: center; font-size: 14px; color: #777;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <a href="#privacy" style="color: #4caf50; margin: 0 10px; text-decoration: none;">Privacy Policy</a> |
-    <a href="#cookie" style="color: #4caf50; margin: 0 10px; text-decoration: none;">Cookie Policy</a> |
-    <a href="#terms" style="color: #4caf50; margin: 0 10px; text-decoration: none;">Terms of Service</a>
-  </div>
-  </section>
-  <section id="privacy" style="background-color: #0a0a0a; color: #bbb; padding: 60px 20px; font-size: 14px; text-align: center;">
-  <div style="max-width: 1000px; margin: 0 auto;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 32px; color: #ffffff; margin-bottom: 20px;">Privacy Policy</h2>
-    <p>Questo sito raccoglie alcuni dati personali dei visitatori (es. indirizzo IP) a fini esclusivamente statistici e di sicurezza. Non vengono raccolti dati sensibili o utilizzati per finalità di marketing.</p>
-    <p>I dati vengono conservati in modo sicuro e non vengono mai venduti o ceduti a terzi. Puoi richiedere la cancellazione dei tuoi dati in qualsiasi momento scrivendo a: <a href="mailto:andreacolucci@hotmail.it" style="color:#4caf50;">andreacolucci@hotmail.it</a>.</p>
-    <p>Utilizzando questo sito, acconsenti al trattamento dei dati come descritto.</p>
-  </div>
-</section>
-  <section id="cookie" style="background-color: #0a0a0a; color: #bbb; padding: 60px 20px; font-size: 14px; text-align: center;">
-  <div style="max-width: 1000px; margin: 0 auto;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 32px; color: #ffffff; margin-bottom: 20px;">Cookie Policy</h2>
-    <p>Questo sito utilizza cookie tecnici per garantire il corretto funzionamento delle pagine. Non vengono utilizzati cookie di profilazione o marketing.</p>
-    <p>Visitando il sito, accetti l'uso di cookie tecnici. Puoi disabilitare i cookie modificando le impostazioni del tuo browser, ma alcune funzionalità del sito potrebbero non funzionare correttamente.</p>
-    <p>Per ulteriori informazioni sui cookie puoi scrivere a: <a href="mailto:andreacolucci@hotmail.it" style="color:#4caf50;">andreacolucci@hotmail.it</a>.</p>
-  </div>
-</section>
-<section id="terms" style="background-color: #0a0a0a; color: #bbb; padding: 60px 20px; font-size: 14px; text-align: center;">
-  <div style="max-width: 1000px; margin: 0 auto;">
-    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 32px; color: #ffffff; margin-bottom: 20px;">Terms of Service</h2>
-    <p>I contenuti pubblicati su questo sito, compresi video, testi e immagini, sono di proprietà esclusiva di Andrea Colucci e sono protetti dalle leggi sul copyright.</p>
-    <p>È vietata qualsiasi riproduzione, distribuzione o utilizzo dei materiali presenti senza esplicita autorizzazione scritta.</p>
-    <p>Il sito viene fornito "così com'è", senza garanzie di alcun tipo. Andrea Colucci non è responsabile di eventuali danni derivanti dall'uso del sito.</p>
-    <p>Per richieste o autorizzazioni, contattare: <a href="mailto:andreacolucci@hotmail.it" style="color:#4caf50;">andreacolucci@hotmail.it</a>.</p>
+<section id="privacy" style="background:#0a0a0a;padding:24px 16px">
+  <div style="max-width:980px;margin:0 auto">
+    <details>
+      <summary style="cursor:pointer;color:#fff;font-weight:700">Privacy Policy</summary>
+      <div style="color:#bbb;margin-top:10px;line-height:1.55">
+        <p>Questo sito raccoglie alcuni dati personali dei visitatori (es. indirizzo IP) a fini esclusivamente statistici e di sicurezza. Non vengono raccolti dati sensibili o utilizzati per finalità di marketing.</p>
+        <p>I dati vengono conservati in modo sicuro e non vengono mai venduti o ceduti a terzi. Puoi richiedere la cancellazione dei tuoi dati in qualsiasi momento scrivendo a:
+          <a href="mailto:andreacolucci@hotmail.it" style="color:#4caf50">andreacolucci@hotmail.it</a>.
+        </p>
+        <p>Utilizzando questo sito, acconsenti al trattamento dei dati come descritto.</p>
+      </div>
+    </details>
   </div>
 </section>
 
-<!-- Finestra Bio Responsive -->
+<section id="cookie" style="background:#0a0a0a;padding:20px 16px">
+  <div style="max-width:980px;margin:0 auto">
+    <details>
+      <summary style="cursor:pointer;color:#fff;font-weight:700">Cookie Policy</summary>
+      <div style="color:#bbb;margin-top:10px;line-height:1.55">
+        <p>Questo sito utilizza cookie tecnici per garantire il corretto funzionamento delle pagine. Non vengono utilizzati cookie di profilazione o marketing.</p>
+        <p>Visitando il sito, accetti l'uso di cookie tecnici. Puoi disabilitarli dalle impostazioni del browser; alcune funzionalità potrebbero non funzionare correttamente.</p>
+        <p>Per info scrivi a:
+          <a href="mailto:andreacolucci@hotmail.it" style="color:#4caf50">andreacolucci@hotmail.it</a>.
+        </p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="terms" style="background:#0a0a0a;padding:20px 16px">
+  <div style="max-width:980px;margin:0 auto">
+    <details>
+      <summary style="cursor:pointer;color:#fff;font-weight:700">Terms of Service</summary>
+      <div style="color:#bbb;margin-top:10px;line-height:1.55">
+        <p>I contenuti pubblicati su questo sito (video, testi, immagini) sono di proprietà esclusiva di Andrea Colucci e protetti dal copyright.</p>
+        <p>È vietata qualsiasi riproduzione, distribuzione o utilizzo senza autorizzazione scritta.</p>
+        <p>Il sito è fornito "così com'è", senza garanzie. Andrea Colucci non è responsabile di eventuali danni derivanti dall'uso del sito.</p>
+        <p>Per richieste o autorizzazioni: <a href="mailto:andreacolucci@hotmail.it" style="color:#4caf50">andreacolucci@hotmail.it</a>.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ========== BIO MODAL (responsive) ========== -->
 <div id="bioPopup" style="
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 92vw;
-  max-width: 600px;
-  max-height: 90vh;
-  overflow-y: auto;
-  background-color: #0a0a0a;
-  border: 2px solid #4caf50;
-  border-radius: 16px;
-  padding: 20px;
-  z-index: 9999;
-  box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
-  animation: fadeIn 0.5s ease forwards;
-  color: #ffffff;
-  text-align: left;
-  font-size: 16px;
-  line-height: 1.6;
-  word-wrap: break-word;
-">
-
-  <h3 style="font-family: 'Bebas Neue', cursive; font-size: 26px; margin-bottom: 16px; text-align: center;">Chi sono</h3>
-
-  <div style="font-size: 16px; color: #ddd;">
-    <p>
-      Sono <strong>Andrea Colucci</strong>, film maker e storyteller visivo. Vivo in Italia e da diversi anni mi dedico alla produzione di <strong>video emozionali, commerciali e musicali</strong>.
-    </p><br>
-    <p>
-      Ho iniziato questo percorso da autodidatta, con passione, sperimentazione e un obiettivo chiaro: <strong>creare emozione attraverso le immagini</strong>.
-    </p><br>
-    <p>
-      Ho diretto più di <strong>300 progetti</strong> tra spot, videoclip e contenuti per brand e artisti. I miei video, pubblicati su <strong>YouTube</strong> e <strong>Instagram</strong>, hanno superato le <strong>800.000 visualizzazioni complessive</strong>.
-    </p>
+  display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:92vw;max-width:600px;max-height:88vh;overflow-y:auto;
+  background:#0a0a0a;border:2px solid #4caf50;border-radius:14px;padding:18px;z-index:9999;
+  box-shadow:0 0 20px rgba(76,175,80,.28);animation:fadeIn .4s ease forwards;color:#fff;text-align:left;font-size:16px;line-height:1.6;word-wrap:break-word;">
+  <h3 style="font-family:'Bebas Neue',cursive;font-size:24px;margin-bottom:10px;text-align:center">Chi sono</h3>
+  <div style="font-size:16px;color:#ddd">
+    <p>Sono <strong>Andrea Colucci</strong>, film maker e storyteller visivo. Vivo in Italia e da anni realizzo <strong>video emozionali, commerciali e musicali</strong>.</p><br>
+    <p>Partito da autodidatta: passione, sperimentazione e un obiettivo chiaro — <strong>creare emozione attraverso le immagini</strong>.</p><br>
+    <p>Oltre <strong>300 progetti</strong> tra spot, videoclip e contenuti per brand e artisti. Su <strong>YouTube</strong> e <strong>Instagram</strong> superate le <strong>800.000 visualizzazioni</strong>.</p>
   </div>
-
-  <div style="text-align: center; margin-top: 30px;">
+  <div style="text-align:center;margin-top:18px">
     <button onclick="closeBio()" style="
-      background-color: transparent;
-      border: 2px solid #4caf50;
-      color: #4caf50;
-      padding: 10px 24px;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
-    ">Chiudi</button>
+      background:transparent;border:2px solid #4caf50;color:#4caf50;padding:8px 20px;border-radius:28px;
+      font-weight:700;font-size:15px;cursor:pointer;transition:background .2s">Chiudi</button>
   </div>
 </div>
 
-<!-- Animazioni -->
-<style>
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translate(-50%, -40%);}
-    to {opacity: 1; transform: translate(-50%, -50%);}
-  }
-  @keyframes fadeOut {
-    from {opacity: 1; transform: translate(-50%, -50%);}
-    to {opacity: 0; transform: translate(-50%, -60%);}
-  }
-
-  /* Mobile Fix */
-  @media (max-width: 480px) {
-    #bioPopup {
-      font-size: 15px;
-      padding: 16px;
-      line-height: 1.5;
-    }
-  }
-</style>
-
-<!-- Script -->
+<!-- ========== SCRIPT (eventi + piccoli miglioramenti) ========== -->
 <script>
-  const openBtn = document.getElementById("openBioBtn");
-  const bioPopup = document.getElementById("bioPopup");
+  // Apertura/chiusura Bio
+  (function(){
+    var openBtn = document.getElementById('openBioBtn');
+    var bioPopup = document.getElementById('bioPopup');
+    if (openBtn && bioPopup) {
+      openBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        bioPopup.style.display = 'block';
+        bioPopup.style.animation = 'fadeIn 0.35s ease forwards';
+      });
+    }
+    window.closeBio = function(){
+      if(!bioPopup) return;
+      bioPopup.style.animation = 'fadeOut 0.35s ease forwards';
+      setTimeout(function(){ bioPopup.style.display='none'; }, 350);
+    };
+  })();
 
-  openBtn.addEventListener("click", function(event) {
-    event.preventDefault();
-    bioPopup.style.display = "block";
-    bioPopup.style.animation = "fadeIn 0.5s ease forwards";
+  // Riduci richiesta CPU Vimeo quando la scheda è in background
+  document.addEventListener('visibilitychange', function(){
+    var iframes = document.querySelectorAll('iframe[src*="player.vimeo.com"]');
+    if(document.hidden){
+      iframes.forEach(function(fr){
+        try {
+          // Pausa gentile (se permesso)
+          fr.contentWindow && fr.contentWindow.postMessage({method:'pause'}, '*');
+        } catch(_) {}
+      });
+    } else {
+      iframes.forEach(function(fr){
+        try {
+          fr.contentWindow && fr.contentWindow.postMessage({method:'play'}, '*');
+        } catch(_) {}
+      });
+    }
   });
-
-  function closeBio() {
-    bioPopup.style.animation = "fadeOut 0.5s ease forwards";
-    setTimeout(() => {
-      bioPopup.style.display = "none";
-    }, 500);
-  }
 </script>
 
+</body>
+</html>
