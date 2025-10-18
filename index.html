@@ -258,106 +258,126 @@
 </section>
 
 <!-- =======================
-     PACCHETTI — COMMERCIALI
-     ======================= -->
-<section id="pacchetti-videoprofessionali" style="
-  padding-top:48px;padding-bottom:48px;
-  background-image:
-    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.08) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
-    url('images/covers/background_pack_flare.jpg');
-  background-size:cover;background-position:center;background-repeat:no-repeat;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <h2 style="text-align:center">Pacchetti Video Commerciali</h2>
+   <!-- ===== PACCHETTI VIDEO COMMERCIALI (griglia 5 colonne) ===== -->
+<style>
+  /* Griglia responsive: fino a 5 colonne su desktop */
+  .packs-grid{
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+  @media (min-width:640px){ .packs-grid{ grid-template-columns: repeat(3, minmax(180px,1fr)); } }
+  @media (min-width:960px){ .packs-grid{ grid-template-columns: repeat(4, minmax(200px,1fr)); } }
+  @media (min-width:1280px){ .packs-grid{ grid-template-columns: repeat(5, minmax(200px,1fr)); } }
+</style>
 
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px;">
+<section id="pacchetti-videoprofessionali" style="
+  padding: 80px 20px; /* compattato */
+  background-image:
+    linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0.85) 15%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.85) 85%, rgba(10,10,10,1) 100%),
+    url('images/covers/background_pack_flare.jpg');
+  background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="font-family: 'Bebas Neue', cursive; font-size: 44px; text-align: center; margin-bottom: 28px; color: #ffffff;">
+      Pacchetti Video Commerciali
+    </h2>
+
+    <div class="packs-grid">
+
       <!-- Basic -->
-      <a href="pack_basic.html" style="text-decoration:none;">
-        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
-          transition:transform .3s, box-shadow .3s;
-          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
-          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
-          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
-          <img src="images/packs/pack_basic_miniatura.jpg" alt="Basic Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <div style="position:absolute;inset:0;padding:22px;
-            background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
-            display:flex;flex-direction:column;justify-content:center;text-align:center">
-            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Basic</h3>
-            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Video breve (&lt;1 min), ideale per social. Riprese e montaggio base.</p>
-            <div style="font-size:22px;color:#4caf50">€399</div>
+      <a href="pack_basic.html" style="text-decoration: none;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; background-color: #000;
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08);"
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.45), 0 0 26px 12px rgba(76,175,80,0.18)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08)';">
+          <img src="images/packs/pack_basic_miniatura.jpg" alt="Basic Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div style="position: absolute; inset: 0; padding: 22px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+            display: flex; flex-direction: column; justify-content: center; text-align: center;">
+            <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 8px;">Basic</h3>
+            <p style="font-size: 15px; color: #dddddd; margin-bottom: 14px;">Video breve (&lt;1 min), ideale per social. Riprese e montaggio base.</p>
+            <div style="font-size: 22px; color: #4caf50;">€399</div>
           </div>
         </div>
       </a>
 
       <!-- Standard -->
-      <a href="pack_standard.html" style="text-decoration:none;">
-        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
-          transition:transform .3s, box-shadow .3s;
-          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
-          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
-          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
-          <img src="images/packs/pack_standard_miniatura.jpg" alt="Standard Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
-            display:flex;flex-direction:column;justify-content:center;text-align:center">
-            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Standard</h3>
-            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Promo (&lt;3 min) per aziende. Montaggio avanzato e color grading.</p>
-            <div style="font-size:22px;color:#4caf50">€599</div>
+      <a href="pack_standard.html" style="text-decoration: none;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; background-color: #000;
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08);"
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.45), 0 0 26px 12px rgba(76,175,80,0.18)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08)';">
+          <img src="images/packs/pack_standard_miniatura.jpg" alt="Standard Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div style="position: absolute; inset: 0; padding: 22px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+            display: flex; flex-direction: column; justify-content: center; text-align: center;">
+            <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 8px;">Standard</h3>
+            <p style="font-size: 15px; color: #dddddd; margin-bottom: 14px;">Video promozionale (&lt;3 min), ideale per aziende. Montaggio avanzato e color grading.</p>
+            <div style="font-size: 22px; color: #4caf50;">€599</div>
           </div>
         </div>
       </a>
 
       <!-- Premium -->
-      <a href="pack_premium.html" style="text-decoration:none;">
-        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
-          transition:transform .3s, box-shadow .3s;
-          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
-          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
-          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
-          <img src="images/packs/pack_premium_miniatura.jpg" alt="Premium Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
-            display:flex;flex-direction:column;justify-content:center;text-align:center">
-            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Premium</h3>
-            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Cinematografico (&gt;3 min), storytelling personalizzato, drone incluso.</p>
-            <div style="font-size:22px;color:#4caf50">€999</div>
+      <a href="pack_premium.html" style="text-decoration: none;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; background-color: #000;
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08);"
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.45), 0 0 26px 12px rgba(76,175,80,0.18)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08)';">
+          <img src="images/packs/pack_premium_miniatura.jpg" alt="Premium Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div style="position: absolute; inset: 0; padding: 22px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+            display: flex; flex-direction: column; justify-content: center; text-align: center;">
+            <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 8px;">Premium</h3>
+            <p style="font-size: 15px; color: #dddddd; margin-bottom: 14px;">Video cinematografico (&gt;3 min), storytelling personalizzato, drone incluso.</p>
+            <div style="font-size: 22px; color: #4caf50;">€999</div>
           </div>
         </div>
       </a>
 
       <!-- Elite Project -->
-      <a href="pack_elite.html" style="text-decoration:none;">
-        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
-          transition:transform .3s, box-shadow .3s;
-          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
-          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
-          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
-          <img src="images/packs/pack_elite_miniatura.jpg" alt="Elite Project Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
-            display:flex;flex-direction:column;justify-content:center;text-align:center">
-            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Elite Project</h3>
-            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Produzione avanzata, più giorni, multi-location, regia cinematografica.</p>
-            <div style="font-size:22px;color:#4caf50">€1.999</div>
+      <a href="pack_elite.html" style="text-decoration: none;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; background-color: #000;
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08);"
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.45), 0 0 26px 12px rgba(76,175,80,0.18)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08)';">
+          <img src="images/packs/pack_elite_miniatura.jpg" alt="Elite Project Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div style="position: absolute; inset: 0; padding: 22px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+            display: flex; flex-direction: column; justify-content: center; text-align: center;">
+            <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 8px;">Elite Project</h3>
+            <p style="font-size: 15px; color: #dddddd; margin-bottom: 14px;">Produzione avanzata, più giorni di ripresa, multi-location, regia cinematografica.</p>
+            <div style="font-size: 22px; color: #4caf50;">€1.999</div>
           </div>
         </div>
       </a>
 
-      <!-- Full Storytelling -->
-      <a href="pack_fullstorytelling.html" style="text-decoration:none;">
-        <div style="position:relative;border-radius:12px;width:270px;overflow:hidden;background:#000;
-          transition:transform .3s, box-shadow .3s;
-          box-shadow:0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35);"
-          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.4), 0 14px 34px rgba(0,0,0,.45)'"
-          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 0 2px rgba(76,175,80,.28), 0 10px 26px rgba(0,0,0,.35)'">
-          <img src="images/packs/pack_fullstorytelling_miniatura.jpg" alt="Full Storytelling Pack" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <div style="position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.82));
-            display:flex;flex-direction:column;justify-content:center;text-align:center">
-            <h3 style="font-size:20px;color:#fff;margin-bottom:6px">Full Storytelling</h3>
-            <p style="font-size:15px;color:#ddd;margin-bottom:12px">Piano narrativo completo: video principali, short clips, ideazione continua.</p>
-            <div style="font-size:22px;color:#4caf50">€3.500</div>
+      <!-- Full Storytelling (ORA nella stessa riga) -->
+      <a href="pack_fullstorytelling.html" style="text-decoration: none;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; background-color: #000;
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          box-shadow: 0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08);"
+          onmouseover="this.style.transform='scale(1.03)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.45), 0 0 26px 12px rgba(76,175,80,0.18)';"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 2px rgba(76,175,80,0.3), 0 0 18px 6px rgba(76,175,80,0.08)';">
+          <img src="images/packs/pack_fullstorytelling_miniatura.jpg" alt="Full Storytelling Pack" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div style="position: absolute; inset: 0; padding: 22px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+            display: flex; flex-direction: column; justify-content: center; text-align: center;">
+            <h3 style="font-size: 20px; color: #ffffff; margin-bottom: 8px;">Full Storytelling</h3>
+            <p style="font-size: 15px; color: #dddddd; margin-bottom: 14px;">Piano narrativo completo: video principali, short clips, ideazione contenuti continua.</p>
+            <div style="font-size: 22px; color: #4caf50;">€3.500</div>
           </div>
         </div>
       </a>
+
     </div>
   </div>
 </section>
+
 
 <!-- =======================
      PACCHETTI — WEDDING
